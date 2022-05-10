@@ -1,28 +1,17 @@
 <h1>Seja bem vindo ao curso de Angular!</h1>
-<div class="row">
-    <!--    LOGO HORACIO    -->
-    <div class="col">
-        <div class="card">
-            <div class="card-body">
-                <img class="img-fluid" src="assets/img/logo_horacio.png">
-            </div>
-            <!-- FIM DO CARD BODY-->
-        </div>
-        <!-- FIM DO CARD-->
-    </div>
-    <!-- FIM DA COLUNA-->
+<h4 class="text-danger">{{ anuncio }}</h4>
 
-
-    <!--    CRUD      -->
-    <div class="col">
-        <div class="card">
-            <div class="card-body">
-                <img class="img-fluid" src="assets/img/crud.png">
-            </div>
-            <!-- FIM DO CARD BODY-->
-        </div>
-        <!--FIM DO CARD-->
+<div class="card" style="width: 18rem;">
+    <img [src]="foto" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">
+            {{ nomeProduto }}
+            <span *ngIf="promocao; else elseBlock" class="badge badge-success">Promoção</span>
+            <ng-template #elseBlock>
+                <span class="badge badge-primary">Aproveite</span>
+            </ng-template>
+        </h5>
+        <p class="card-text">Identificação {{ idProduto }}</p>
+        <a href="#" class="btn btn-primary float-right">R$ {{precoProduto}}</a>
     </div>
-    <!-- FIM DA COLUNA -->
 </div>
-<!-- FIM DA LINHA-->

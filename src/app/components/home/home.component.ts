@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   idProduto: number = 123;
   precoProduto: number = 2.59;
   promocao: boolean = true;
+  foto: string = 'assets/img/crud.png';
 
   constructor() {
     //Variaveis de string com concatenação
@@ -23,35 +24,6 @@ export class HomeComponent implements OnInit {
     console.log('Id do Produto: ', this.idProduto);
     console.log('Preço do Produto: ', this.precoProduto);
     console.log('Promoção: ', this.promocao);
-
-
-    var variavel1;
-    let variavel2;
-    // const variavel3;
-
-    var idade = 10;
-    console.log('Minha idade é ', idade);
-
-    /*
-    function ImprimirIdade()
-    {
-      var idade = 50
-      console.log('Minha idade é ', idade);
-    }
-    ImprimirIdade();
-    */
-
-
-    function ImprimirIdade()
-    {
-      for(let idade = 30; idade <= 40; idade++)
-      {
-        console.log('Minha idade dentro do for é', idade);
-      }
-      console.log('Minha idade fora do for é ', idade);
-
-    }
-    ImprimirIdade();
 
   }
 
