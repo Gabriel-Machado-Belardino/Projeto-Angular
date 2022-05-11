@@ -5,13 +5,14 @@
     <img [src]="foto" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">
-            {{ nomeProduto }}
+            {{ nomeProduto | uppercase}}
             <span *ngIf="promocao; else elseBlock" class="badge badge-success">Promoção</span>
             <ng-template #elseBlock>
                 <span class="badge badge-primary">Aproveite</span>
             </ng-template>
         </h5>
-        <p class="card-text">Identificação {{ idProduto }}</p>
-        <a href="#" class="btn btn-primary float-right">R$ {{precoProduto}}</a>
+        <p class="card-text">Identificação {{ idProduto | number: '2.0-0'}}</p>
+        Validade: {{dataValidade | date: 'shortDate'}}
+        <a href="#" class="btn btn-primary float-right">{{precoProduto | currency:'BRL'}}</a>
     </div>
 </div>
