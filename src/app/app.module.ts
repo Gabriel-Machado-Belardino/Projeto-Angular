@@ -14,6 +14,8 @@ import { CadastrarProdutoComponent } from './components/produtos/cadastrar-produ
 import { LOCALE_ID } from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 
 registerLocaleData(localePt);
 
@@ -28,7 +30,8 @@ registerLocaleData(localePt);
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
