@@ -9,7 +9,14 @@ export class HomeComponent implements OnInit {
 
   anuncio: string = `O Curso de Angular está em promoção`;
 
+  nomeProduto: string = 'Curso de Angular';
+  idProduto: number = 1;
+  precoProduto: number = 35.56;
+  promocao: boolean = true;
+  foto: string = 'assets/img/crud.png';
+  dataValidade: string = '2021-12-31';
 
+  /*
   listaProdutos: any[] = [
     {
       nomeProduto: 'Curso de Angular',
@@ -53,7 +60,7 @@ export class HomeComponent implements OnInit {
     },
 
   ]
-
+  */
   constructor() {
     //Variaveis de string com concatenação
     //this.anuncio = 'O ' + this.nomeProduto + 'está em promoção';
