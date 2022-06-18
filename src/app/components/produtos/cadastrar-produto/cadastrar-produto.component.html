@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="nome">Nome do Produto: </label>
-                        <input type="text" class="form-control" placeholder="Digite o nome do Produto" name="nomeProduto" [(ngModel)]="nome" />
+                        <input type="text" class="form-control" placeholder="Digite o nome do Produto" name="nomeProduto" [(ngModel)]="produto.nome" />
 
                     </div>
                 </div>
@@ -16,14 +16,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="validade">Validade do Produto: </label>
-                        <input type="date" class="form-control" name="validadeProduto" [(ngModel)]="validade" />
+                        <input type="date" class="form-control" name="validadeProduto" [(ngModel)]="produto.validade" />
 
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="precoProduto">Preço do Produto: </label>
-                        <input type="number" class="form-control" placeholder="0.00" name="precoProduto" [(ngModel)]="preco" />
+                        <input type="number" class="form-control" placeholder="0.00" name="precoProduto" [(ngModel)]="produto.precoProduto" />
 
                     </div>
                 </div>
@@ -36,10 +36,5 @@
                 </div>
             </div>
         </form>
-    </div>
-    <div class="card">
-        <p>Nome: {{ nome }}</p>
-        <p>Validade: {{ validade }}</p>
-        <p>Preço: {{ preco }}</p>
     </div>
 </div>
