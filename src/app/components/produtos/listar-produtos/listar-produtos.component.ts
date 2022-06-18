@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IProduto } from 'src/app/Model/IProduto.model';
+import { ProdutosService } from 'src/app/services/produtos.service';
 
 @Component({
   selector: 'app-listar-produtos',
@@ -7,41 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarProdutosComponent implements OnInit {
 
-  listaStrings: string[] = ['Primeiro','Segundo','Terceiro'];
-  listaNumeros: Number[] = [15, 15.18, 100];
+  listaProdutos: IProduto[] = [];
 
-  objetoModel = {
-    nome: 'Gabriel',
-    idade: 17,
-    altura: 1.75,
-    graduado: false
-
-  };
-
-  listaProdutos: any[] = [
-    {nome: 'Curso de Angular', precoProduto: 35.56, validade: '2022-06-30', id: 1},
-    {nome: 'Curso de Ionic', precoProduto: 50, validade: '2022-06-30', id: 2, promocao: true},
-    {id: 3, nome: 'Curso de Ionic Avançado', precoProduto: 50, validade: '2022-06-30'}
-    //{nome: '', precoProduto: 0, validade: '0000-00-00', id: 2}
-  ];
-
-  constructor() {
+  constructor(private produtosService: ProdutosService) {
     
-    for(let item of this.listaStrings)
-    {
-      console.log(item);
-    }
-
-    for(const item of this.listaNumeros)
-    {
-      console.log(item);
-    }
-
-    console.log(this.objetoModel);
-
    }
 
   ngOnInit(): void {
+     this.carregarProdutos();
+  }
+
+  carregarProdutos() : void
+  {
+    this.produtosService.buscarTodos().subscribe(retorno => {
+      this.listaProdutos = retorno;
+    })
   }
 
 }
