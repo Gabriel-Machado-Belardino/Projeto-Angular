@@ -22,7 +22,7 @@
                     <td>{{ prod.validade | date: "shortDate"}}</td>
                     <td>{{ prod.precoProduto | currency: "BRL" }}</td>
                     <td>
-                        <button class="btn btn-warning">
+                        <button class="btn btn-warning" routerLink="/produtos/atualizar/{{ prod.id}}" routerLinkActive="router-link-active">
                       <i class="fa fa-pencil" aria-hidden="true"></i>
                     </button>
                         <button class="btn btn-danger ml-2">

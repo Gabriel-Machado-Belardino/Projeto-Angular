@@ -13,6 +13,14 @@ export class ProdutosService {
 
   constructor(private http: HttpClient, private toaste: ToastrService) { }
 
+  buscarPorId(id: number): Observable<IProduto>
+  {
+    return this.http.get<IProduto[]>(`${this.URL}/${id}`).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro)))
+  }
+
+
   buscarTodos(): Observable<IProduto[]>
   {
     return this.http.get<IProduto[]>(this.URL).pipe(
@@ -20,9 +28,16 @@ export class ProdutosService {
       catchError(erro => this.exibirErro(erro)))
   }
 
-  cadastrar(produto: IProduto) : Observable<IProduto> 
+  cadastrar(produto: IProduto) : Observable<IProduto>
   {
     return this.http.post<IProduto>(this.URL, produto).pipe(
+    map(retorno => retorno),
+    catchError(erro => this.exibirErro(erro)))
+  }
+
+  atualizar(produto: IProduto) : Observable<IProduto>
+  {
+    return this.http.put<IProduto>(`${this.URL}/${produto.id}`, produto).pipe(
     map(retorno => retorno),
     catchError(erro => this.exibirErro(erro)))
   }
@@ -33,7 +48,7 @@ export class ProdutosService {
     return EMPTY;
   }
 
-  exibirMensagem(titulo: string, mensagem: string, tipo: string): void 
+  exibirMensagem(titulo: string, mensagem: string, tipo: string): void
   {
     this.toaste.show(mensagem, titulo, {closeButton:true, progressBar: true}, tipo);
   }
