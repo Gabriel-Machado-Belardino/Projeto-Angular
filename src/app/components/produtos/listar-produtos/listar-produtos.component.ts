@@ -12,7 +12,7 @@ export class ListarProdutosComponent implements OnInit {
   listaProdutos: IProduto[] = [];
 
   constructor(private produtosService: ProdutosService) {
-    
+
    }
 
   ngOnInit(): void {
@@ -26,4 +26,13 @@ export class ListarProdutosComponent implements OnInit {
     })
   }
 
+  deletar(produto: IProduto ): void
+  {
+    this.produtosService.excluir(produto.id!).subscribe(() =>{
+      this.produtosService.exibirMensagem('SISTEMA',
+      `${produto.nome} foi excluido com sucesso!`,
+      'toast-error');
+      this.carregarProdutos();
+    });
+  }
 }
